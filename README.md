@@ -96,6 +96,13 @@ This project is a full-stack web application built using the MERN stack (MongoDB
    http://localhost:3000
    ```
 
+### Test Login Credentials
+
+```bash
+Username : Akshay Rathee
+Password : akshayrathee
+```
+
 ---
 
 ## Video Demonstration
