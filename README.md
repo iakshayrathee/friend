@@ -100,7 +100,4 @@ This project is a full-stack web application built using the MERN stack (MongoDB
 
 ## Video Demonstration
 
-<video width="640" height="360" controls>
-  <source src="https://drive.google.com/file/d/1EO2pmE2QTlRps6QqfunS6H3_aWKq_5lU/view?usp=sharing" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+[![Watch the video](https://img.icons8.com/ios-filled/50/000000/play-button-circled.png)](https://drive.google.com/file/d/1EO2pmE2QTlRps6QqfunS6H3_aWKq_5lU/view?usp=sharing)
