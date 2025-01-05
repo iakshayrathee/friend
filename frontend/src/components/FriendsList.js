@@ -25,7 +25,7 @@ export default function FriendsList({ friends, onFriendRemoved, className }) {
             >
               <span>{friend.username}</span>
               <button
-                onClick={() => removeFriend(friend._id)}
+                onClick={() => removeFriend(friend.id)}
                 className='text-red-500 hover:text-red-600'
               >
                 Remove

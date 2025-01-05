@@ -1,10 +1,10 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import connectDB from './config/db.js';
+import connectDB from './config/database.js';
 import interestRoutes from './routes/interestRoutes.js';
 import authRoutes from './routes/authRoutes.js';
-import friendRoutes from './routes/friends.js';
+import friendRoutes from './routes/friendRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 
 dotenv.config();

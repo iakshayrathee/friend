@@ -1,5 +1,5 @@
 import express from 'express';
-import User from '../models/userModel.js';
+import User from '../models/User.js';
 import auth from '../middleware/auth.js';
 
 const router = express.Router();
@@ -18,19 +18,25 @@ async function updateFriendList(user, friendId, action) {
 
 router.post('/request/:userId', auth, async (req, res) => {
   try {
-    const [targetUser] = await Promise.all(User.findById(req.params.userId));
+    const targetUser = await User.findById(req.params.userId);
+    if (!targetUser) {
+      return res.status(404).json({ message: 'User not found' });
+    }
 
-    if (!targetUser) return res.status(404).json({ message: 'User not found' });
-    if (
-      targetUser.friendRequests.some(
-        (request) => request.from.toString() === req.userId
-      )
-    ) {
+    const existingRequest = targetUser.friendRequests.find(
+      (request) => request.from.toString() === req.userId
+    );
+
+    if (existingRequest) {
       return res.status(400).json({ message: 'Friend request already sent' });
     }
 
-    targetUser.friendRequests.push({ from: req.userId, status: 'pending' });
+    targetUser.friendRequests.push({
+      from: req.userId,
+      status: 'pending',
+    });
     await targetUser.save();
+
     res.json({ message: 'Friend request sent' });
   } catch (error) {
     res.status(500).json({ message: 'Error sending friend request' });
